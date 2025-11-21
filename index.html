@@ -21,31 +21,104 @@
 </section>
 <section class="card">
 <div class="art">
-<svg viewBox="0 0 200 200" aria-hidden="true">
-<defs>
-<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#FF7EE2"/>
-<stop offset="50%" stop-color="#7E9BFF"/>
-<stop offset="100%" stop-color="#7CFFC4"/>
-</linearGradient>
-</defs>
-<path d="M100 20c28 0 64 18 64 46s-24 44-52 44c-18 0-28-8-36-4-8 4-16 14-16 26 0 18 16 32 40 32 44 0 76-34 76-82S140 20 100 20z" fill="url(#g)"/>
-<g transform="translate(64,70)">
-<rect x="0" y="0" rx="8" width="72" height="48" fill="#fff" opacity="0.9"/>
-<rect x="8" y="8" rx="6" width="56" height="24" fill="#f6f7fb"/>
-<path d="M16 36h40c0 10-8 18-20 18s-20-8-20-18z" fill="#eaeef9"/>
-</g>
-</svg>
+<div class="carousel">
+<div class="carousel-container">
+<div class="carousel-slide active">
+<div class="slide-content">
+<div class="slide-icon">☕</div>
+<div class="slide-title">享受一杯咖啡</div>
+<div class="slide-desc">给自己一个放松的时刻</div>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-content">
+<div class="slide-icon">🧘</div>
+<div class="slide-title">冥想放松</div>
+<div class="slide-desc">让心灵得到片刻宁静</div>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-content">
+<div class="slide-icon">🌿</div>
+<div class="slide-title">亲近自然</div>
+<div class="slide-desc">感受绿色带来的平静</div>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-content">
+<div class="slide-icon">🎶</div>
+<div class="slide-title">聆听音乐</div>
+<div class="slide-desc">让旋律带走一天的疲惫</div>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-content">
+<div class="slide-icon">💤</div>
+<div class="slide-title">充足睡眠</div>
+<div class="slide-desc">为明天储备满满能量</div>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-content">
+<div class="slide-icon">📖</div>
+<div class="slide-title">阅读时光</div>
+<div class="slide-desc">在文字中寻找内心平静</div>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-content">
+<div class="slide-icon">🧘</div>
+<div class="slide-title">身体拉伸</div>
+<div class="slide-desc">缓解肌肉紧张与疲劳</div>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-content">
+<div class="slide-icon">🛁</div>
+<div class="slide-title">温暖泡澡</div>
+<div class="slide-desc">让热水舒缓身心压力</div>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-content">
+<div class="slide-icon">⭐</div>
+<div class="slide-title">仰望星空</div>
+<div class="slide-desc">在浩瀚中找到内心宁静</div>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-content">
+<div class="slide-icon">📝</div>
+<div class="slide-title">记录心情</div>
+<div class="slide-desc">用文字整理思绪与感受</div>
+</div>
+</div>
+</div>
+<div class="carousel-nav">
+<span class="carousel-dot active" data-slide="0"></span>
+<span class="carousel-dot" data-slide="1"></span>
+<span class="carousel-dot" data-slide="2"></span>
+<span class="carousel-dot" data-slide="3"></span>
+<span class="carousel-dot" data-slide="4"></span>
+<span class="carousel-dot" data-slide="5"></span>
+<span class="carousel-dot" data-slide="6"></span>
+<span class="carousel-dot" data-slide="7"></span>
+<span class="carousel-dot" data-slide="8"></span>
+<span class="carousel-dot" data-slide="9"></span>
+</div>
+</div>
 </div>
 <div class="tip" id="tipText">您辛苦了，来一杯咖啡吧，再安排休息5分钟。</div>
 <div class="actions">
-<button id="restBtn" class="btn primary">开始 5 分钟休息</button>
+<button id="restBtn" class="btn primary large">开始 5 分钟放松</button>
 <a class="btn ghost" href="#" id="hydrateBtn">喝水</a>
 </div>
 <div class="timer" id="restTimer" hidden>
+<div class="timer-label">放松时间</div>
 <div class="timer-time" id="timerText">05:00</div>
+<div class="timer-message">深呼吸，放松身心</div>
 <div class="timer-actions">
-<button id="cancelTimer" class="btn subtle">结束休息</button>
+<button id="cancelTimer" class="btn subtle">结束放松</button>
 </div>
 </div>
 </section>
@@ -54,7 +127,7 @@
 </section>
 </main>
 <footer class="footer">
-<div class="footer-inner">© 放松一下 · GitHub Pages 静态站点</div>
+<div class="footer-inner">放松一下</div>
 </footer>
 <script src="script.js"></script>
 </body>

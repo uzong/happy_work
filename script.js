@@ -2,6 +2,46 @@ function pad(n){return n<10?"0"+n:""+n}
 function weekday(n){return["星期日","星期一","星期二","星期三","星期四","星期五","星期六"][n]}
 function updateClock(){var d=new Date();var t=pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds());var s=d.getFullYear()+"年"+pad(d.getMonth()+1)+"月"+pad(d.getDate())+"日 · "+weekday(d.getDay());document.getElementById("clockTime").textContent=t;document.getElementById("clockDate").textContent=s}
 function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
+
+// Carousel functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.carousel-dot');
+const carouselContainer = document.querySelector('.carousel-container');
+
+function showSlide(n) {
+  currentSlide = n;
+  const offset = -currentSlide * 100;
+  carouselContainer.style.transform = `translateX(${offset}%)`;
+  
+  // Update dots
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentSlide);
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Auto-advance carousel every 4 seconds for better flow
+let carouselInterval = setInterval(nextSlide, 4000);
+
+// Add click events to dots
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    clearInterval(carouselInterval);
+    showSlide(index);
+    carouselInterval = setInterval(nextSlide, 4000);
+  });
+});
+
 var tips=[
 "您辛苦了，来一杯咖啡☕️吧，再安排休息5分钟",
 "闭眼深呼吸四次，肩颈放松，再来一杯温水",
@@ -108,6 +148,6 @@ var quotes=[
 ]
 function setTipAndQuote(){document.getElementById("tipText").textContent=pick(tips);document.getElementById("quoteText").textContent=pick(quotes)}
 var timer=null;var remains=0
-function startRest(){remains=300;document.getElementById("restTimer").hidden=false;renderTimer();if(timer)clearInterval(timer);timer=setInterval(function(){remains--;if(remains<=0){clearInterval(timer);timer=null;document.getElementById("timerText").textContent="休息结束";return}renderTimer()},1000)}
+function startRest(){remains=300;document.getElementById("restTimer").hidden=false;renderTimer();document.body.classList.add("relaxing");if(timer)clearInterval(timer);timer=setInterval(function(){remains--;if(remains<=0){clearInterval(timer);timer=null;document.getElementById("timerText").textContent="00:00";document.getElementById("tipText").textContent="放松时间结束，你已经很棒了！点击按钮开始新的放松时光。";document.body.classList.remove("relaxing");setTimeout(function(){document.getElementById("restTimer").hidden=true},5000);return}renderTimer()},1000)}
 function renderTimer(){var m=Math.floor(remains/60);var s=remains%60;document.getElementById("timerText").textContent=pad(m)+":"+pad(s)}
-document.addEventListener("DOMContentLoaded",function(){updateClock();setTipAndQuote();setInterval(updateClock,1000);document.getElementById("shuffleBtn").addEventListener("click",setTipAndQuote);document.getElementById("restBtn").addEventListener("click",startRest);document.getElementById("cancelTimer").addEventListener("click",function(){if(timer)clearInterval(timer);timer=null;document.getElementById("restTimer").hidden=true});document.getElementById("hydrateBtn").addEventListener("click",function(e){e.preventDefault();document.getElementById("tipText").textContent="喝一杯水，给身体一个小拥抱"})})
+document.addEventListener("DOMContentLoaded",function(){updateClock();setTipAndQuote();setInterval(updateClock,1000);document.getElementById("shuffleBtn").addEventListener("click",setTipAndQuote);document.getElementById("restBtn").addEventListener("click",startRest);document.getElementById("cancelTimer").addEventListener("click",function(){if(timer)clearInterval(timer);timer=null;document.getElementById("restTimer").hidden=true;document.body.classList.remove("relaxing")});document.getElementById("hydrateBtn").addEventListener("click",function(e){e.preventDefault();document.getElementById("tipText").textContent="喝一杯水，给身体一个小拥抱"})})
