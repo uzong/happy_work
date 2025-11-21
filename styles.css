@@ -4,7 +4,7 @@ html,body{height:100%}
 body{margin:0;background:#0b0d10;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Helvetica,Arial,sans-serif;display:flex;flex-direction:column;min-height:100vh}
 .bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(1200px 500px at 10% 10%,rgba(255,126,226,.15),transparent),radial-gradient(1000px 600px at 90% 20%,rgba(126,155,255,.18),transparent),radial-gradient(800px 500px at 20% 90%,rgba(124,255,196,.12),transparent);background-size:100% 100%;transition:all 1s ease}
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
-.brand{font-weight:700;letter-spacing:.5px;font-size:clamp(18px,2vw,22px);background:linear-gradient(90deg, var(--primary), var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.brand{font-weight:700;letter-spacing:.3px;font-size:clamp(16px, 2.5vw, 22px);background:linear-gradient(90deg, var(--primary), var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 70%;}
 .container{width:min(960px,92%);margin:0 auto;padding:8px 0 32px}
 .clock{text-align:center;padding:12px 0 8px}
 .time{font-size:clamp(36px,6vw,64px);font-weight:800;letter-spacing:1px}
@@ -166,4 +166,16 @@ body{margin:0;background:#0b0d10;color:var(--text);font-family:-apple-system,Bli
   box-shadow: 0 0 30px var(--relax-bg);
 }
 
-@media (max-width:480px){.actions{flex-direction:column}.btn{width:100%}.art{padding:8px}}
+/* Mobile responsiveness */
+@media (max-width:480px){
+  .actions{flex-direction:column}
+  .btn{width:100%}
+  .art{padding:8px}
+  .brand{
+    font-size: clamp(16px, 4vw, 20px);
+    letter-spacing: 0.3px;
+  }
+  .topbar{
+    padding: 12px 16px;
+  }
+}
